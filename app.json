@@ -3,38 +3,43 @@
     "logo": "https://telegra.ph/file/e17ae80eefd44ab387aaf.jpg",
     "description": "Create your own bot to stream music trought the new Telegram video chat feature.",
     "keywords": ["music", "voice chat", "telegram"],
-    "repository": "https://github.com/aryazakaria01/GroupMusicBot",
+    "repository": "https://github.com/Auberon-SC/nanananananan",
     "stack": "container",
     "env": {
         "SESSION_NAME": {
             "description": "fill with the pyrogram session string",
             "required": true,
-            "value": ""
+            "value": "BQATWleoXieuY4eWhoOP2cXjsfdC8GeuaOP8A8cH85EinJLP6vGMJd0i-nejW1uonUcqs4uyS_SOmq0pgz4Oa903CzoybOYTAEq5uczhBQV5s19Y9PL8YSKBcfqMXlpNRhQ7XDD0h9NgJFCJ0ANyPhh0sXfvsxz5GIPsZ_rR5kEbt2ymwc_ybtL5bhdS5GOeRK7QdYqF9Tpm5Ov6PgNnxl87P3u9QZVfLCb-p6tp-rHhj6i0-0bvIFFh4l1Ca-0IzoZ0blO-7bdh952lkQ-wDkxYjn4fHlROJeKOtaWPml2wCROu0Q5cz7kneGYBsRXzk-ks7ygmdPKNmmL8ywdgbIBtfgXwpAA"
         },
         "OWNER_ID": {
             "description": "fill with your telegram id as the owner of the bot",
             "required": true,
-            "value": "1757169682"
+            "value": "1963422158"
         },
         "ASS_ID": {
             "description": "fill with the telegram id of account you used for the assistant/userbot",
             "required": true,
-            "value": "1727937540"
+            "value": "2114318500"
         },
         "LOG_GROUP_ID": {
             "description": "create a private group and get the group id, add your bot as admin to the group too",
             "required": true,
-            "value": "-1001306851903"
+            "value": "-1001512154993"
+        },
+        "LOG_GROUP_ID2": {
+            "description": "create a private group and get the group id, add your bot as admin to the group too",
+            "required": true,
+            "value": "-1001512154993"
         },
         "API_ID": {
             "description": "your Api ID from my.telegram.org/apps",
             "required": true,
-            "value": ""
+            "value": "13758756"
         },
         "API_HASH": {
             "description": "your Api Hash from my.telegram.org/apps",
             "required": true,
-            "value": ""
+            "value": "fe4957bbcde1a05ce2891e06fff9087d"
         },
         "SUDO_USERS": {
             "description": "fill with the user id who can access all function in your bot (separate with space).",
@@ -49,12 +54,27 @@
         "BOT_TOKEN": {
             "description": "fill with your bot token get from @BotFather on telegram",
             "required": true,
-            "value": ""
+            "value": "5313820623:AAHZAQLvSs0H5Ilf88RDi1-hkBw66PJVcDU"
+        },
+        "GROUP": {
+            "description": "fill with your bot token get from @BotFather on telegram",
+            "required": true,
+            "value": "punyazein"
+        },
+        "CHANNEL": {
+            "description": "fill with your bot token get from @BotFather on telegram",
+            "required": true,
+            "value": "zeinproject"
+        },
+        "MUST_JOIN": {
+            "description": "fill with your bot token get from @BotFather on telegram",
+            "required": true,
+            "value": "zeinproject"
         },
         "MONGO_DB_URI": {
             "description": "fill with the mongodb url get from mongodb.cloud.com",
             "required": true,
-            "value": ""
+            "value": "mongodb+srv://knsgnwn:knsgnwn@cluster0.d5mlv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
         }
     },
     "addons": [],
