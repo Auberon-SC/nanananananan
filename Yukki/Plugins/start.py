@@ -3,6 +3,7 @@ import time
 import asyncio
 import yt_dlp
 
+from datetime import datetime
 from youtubesearchpython import VideosSearch
 from pyrogram import filters, Client
 from pyrogram.types import (
@@ -48,6 +49,7 @@ from Yukki.YukkiUtilities.tgcallsrun.yukki import pytgcalls
 from platform import python_version as kontol
 from pytgcalls import idle, __version__ as memek
 from pyrogram import Client, __version__ as kntl
+from Yukki.YukkiUtilities.helpers.time import get_readable_time
 
 welcome_captcha_group = 2
 
@@ -101,11 +103,12 @@ phelp_markup=InlineKeyboardMarkup(
 
 @app.on_message(filters.command("start") & filters.group)
 async def settings(_, message: Message):
+    bot_uptime = int(time.time() - bot_start_time)
     user_id = message.from_user.id
     user_name = message.from_user.first_name
     rpk = "["+user_name+"](tg://user?id="+str(user_id)+")" 
     await app.send_message(message.chat.id,
-            text=f"👋 **Hello** {rpk}\n\n**I'm awake already.**\nPython: `{kontol()}`\nPyrogram: `{kntl}`\nPyTgcalls: `{memek.__version__}`",
+            text=f"👋 **Hello** {rpk}\n\n**I'm awake already.**\nUptime: `{get_readable_time((bot_uptime))}`\nPython: `{kontol()}`\nPyrogram: `{kntl}`\nPyTgcalls: `{memek.__version__}`",
             parse_mode="markdown",
             reply_markup=pstartaa_markup,
             reply_to_message_id=message.message_id
