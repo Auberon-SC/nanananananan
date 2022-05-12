@@ -82,10 +82,10 @@ pstartaa_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🗑Close", callback_data="close")
+                        "〽️ Network", url=f"https://t.me/zeinnetwork")
                 ],[
                     InlineKeyboardButton(
-                        "〽️ Network", url=f"https://t.me/zeinnetwork")
+                        "🗑Close", callback_data="close")
                 ],
             ]
         )
