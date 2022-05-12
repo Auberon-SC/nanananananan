@@ -111,9 +111,6 @@ async def welcome(_, message: Message):
 
 @app.on_message(filters.command(["help"]))
 async def helpmenu(_, message: Message):
-    user_id = message.from_user.id
-        user_name = message.from_user.first_name
-        rpk = "["+user_name+"](tg://user?id="+str(user_id)+")" 
         await app.send_message(message.chat.id,
             text=f"**Click the button below to view the help list.**",
             parse_mode="markdown",
