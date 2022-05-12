@@ -45,6 +45,9 @@ from Yukki.YukkiUtilities.database import (
 from Yukki.YukkiUtilities.helpers.time import get_readable_time
 from Yukki.YukkiUtilities.helpers.admins import ActualAdminCB
 from Yukki.YukkiUtilities.tgcallsrun.yukki import pytgcalls
+from platform import python_version as kontol
+from pytgcalls import idle, __version__ as memek
+from pyrogram import Client, __version__ as kntl
 
 welcome_captcha_group = 2
 
@@ -84,6 +87,18 @@ phelp_markup=InlineKeyboardMarkup(
             ]
         )
 
+@app.on_message(filters.command("start") & filters.group)
+async def settings(_, message: Message):
+    user_id = message.from_user.id
+    user_name = message.from_user.first_name
+    rpk = "["+user_name+"](tg://user?id="+str(user_id)+")" 
+    await app.send_message(message.chat.id,
+            text=f"👋 **Hello** {rpk}\n\n**I'm awake already.**\nPython: `{kontol()}`\nPyrogram: `{kntl}`\nPyTgcalls: `{memek.__version__}`",
+            parse_mode="markdown",
+            reply_markup=phelp_markup,
+            reply_to_message_id=message.message_id
+        )
+    
 @app.on_message(filters.new_chat_members, group=welcome_captcha_group)
 async def welcome(_, message: Message):
     chat_id = message.chat.id
