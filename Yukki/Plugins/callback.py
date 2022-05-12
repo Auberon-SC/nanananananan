@@ -726,3 +726,14 @@ async def delplcb(_, CallbackQuery):
         return await CallbackQuery.message.delete()
     else:
         return await CallbackQuery.message.delete()
+
+    
+
+@Client.on_callback_query(filters.regex("loci"))
+async def locimenu(_, CallbackQuery):
+    try:
+        await CallbackQuery.message.delete()
+        await CallbackQuery.answer()
+    except:
+        return
+async def delplcb(_, CallbackQuery):
