@@ -1,0 +1,64 @@
+import asyncio
+
+from datetime import datetime
+from pyrogram import Client, filters
+
+from Yukki import app, SUDOERS
+from Yukki.YukkiUtilities.database.autoend import autoend_off, autoend_on, is_autoend
+from Yukki.YukkiUtilities.database.queue import is_active_chat
+from Yukki.YukkiUtilities.tgcallsrun import yukki
+from Yukki.YukkiUtilities.helpers.filters import command
+
+autoend = {}
+counter = {}
+AUTO_END_TIME = 3
+
+
+@app.on_message(command("autoend") & filters.user(SUDOERS))
+async def auto_end_stream(client, message):
+    chat_id = message.chat.id
+    usage = "**Usage:**\n\n/autoend [enable|disable]"
+    if len(message.command) != 2:
+        return await app.send_message(chat_id, usage)
+    state = message.text.split(None, 1)[1].strip()
+    state = state.lower()
+    if state == "enable":
+        await autoend_on()
+        await app.send_message(
+            chat_id,
+            "Auto End Stream Enabled.\n\nBot will leave voice chat automatically after 3 mins if no one is listening with a warning message..",
+        )
+    elif state == "disable":
+        await autoend_off()
+        await app.send_message(chat_id, "Auto End Stream Disabled.")
+    else:
+        await app.send_message(chat_id, usage)
+
+
+async def auto_end():
+    while not await asyncio.sleep(5):
+        if not await is_autoend():
+            continue
+        for chat_id in autoend:
+            timer = autoend.get(chat_id)
+            if not timer:
+                continue
+            if datetime.now() > timer:
+                if not await is_active_chat(chat_id):
+                    autoend[chat_id] = {}
+                    continue
+                autoend[chat_id] = {}
+                try:
+                    await yukki.pytgcalls.leave_group_call(chat_id)
+                except:
+                    continue
+                try:
+                    await app.send_message(
+                        chat_id,
+                        "Bot has left voice chat due to inactivity to avoid overload on servers. No-one was listening to the bot on voice chat.",
+                    )
+                except:
+                    continue
+
+
+asyncio.create_task(auto_end())

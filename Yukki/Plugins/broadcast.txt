@@ -1,0 +1,121 @@
+import asyncio
+
+from Yukki import app, OWNER
+from pyrogram import filters
+from Yukki.YukkiUtilities.database.chats import (
+    get_served_chats,
+    get_served_chats,
+    add_served_chat,
+)
+
+
+chat_watcher_group = 10
+
+
+@app.on_message(group=chat_watcher_group)
+async def kontolole_group(_, message):
+    chat_id = message.chat.id
+    if not chat_id:
+        return
+    await add_served_chat(chat_id)
+
+
+@app.on_message(filters.command("broadcast_pin") & filters.user(OWNER))
+async def broadcast_message_pin(_, message):
+    chat_id = message.chat.id
+    if not message.reply_to_message:
+        pass
+    else:
+        x = message.reply_to_message.message_id
+        y = message.chat.id
+        sent = 0
+        pin = 0
+        chats = []
+        schats = await get_served_chats()
+        for chat in schats:
+            chats.append(int(chat["chat_id"]))
+        for i in chats:
+            try:
+                m = await app.forward_messages(i, y, x)
+                try:
+                    await m.pin(disable_notification=False)
+                    pin += 1
+                except Exception:
+                    pass
+                await asyncio.sleep(0.3)
+                sent += 1
+            except Exception:
+                pass
+        await app.send_message(
+            chat_id,
+            f"✅ **Broadcasted message in `{sent}` chats\n\n📌 With `{pin}` pins.**",
+        )
+        return
+    if len(message.command) < 2:
+        await app.send_message(chat_id, "**Usage**:\n/broadcast (message)")
+        return
+    text = message.text.split(None, 1)[1]
+    sent = 0
+    pin = 0
+    chats = []
+    schats = await get_served_chats()
+    for chat in schats:
+        chats.append(int(chat["chat_id"]))
+    for i in chats:
+        try:
+            m = await app.send_message(i, text=text)
+            try:
+                await m.pin(disable_notification=False)
+                pin += 1
+            except Exception:
+                pass
+            await asyncio.sleep(0.3)
+            sent += 1
+        except Exception:
+            pass
+    await app.send_message(
+        chat_id, f"✅ **Broadcasted message in `{sent}` chats\n📌 With `{pin}` pins.**"
+    )
+
+
+@app.on_message(filters.command("broadcast") & filters.user(OWNER))
+async def broadcast_msg_nopin(_, message):
+    chat_id = message.chat.id
+    if not message.reply_to_message:
+        pass
+    else:
+        x = message.reply_to_message.message_id
+        y = message.chat.id
+        sent = 0
+        chats = []
+        schats = await get_served_chats()
+        for chat in schats:
+            chats.append(int(chat["chat_id"]))
+        for i in chats:
+            try:
+                m = await app.forward_messages(i, y, x)
+                await asyncio.sleep(0.3)
+                sent += 1
+            except Exception:
+                pass
+        await app.send_message(chat_id, f"✅ **Broadcasted message in `{sent}` chats")
+        return
+    if len(message.command) < 2:
+        await app.send_message(
+            chat_id, "**Usage**:\n/broadcast <message> or [reply to a message]"
+        )
+        return
+    text = message.text.split(None, 1)[1]
+    sent = 0
+    chats = []
+    schats = await get_served_chats()
+    for chat in schats:
+        chats.append(int(chat["chat_id"]))
+    for i in chats:
+        try:
+            m = await app.send_message(i, text=text)
+            await asyncio.sleep(0.3)
+            sent += 1
+        except Exception:
+            pass
+    await app.send_message(chat_id, f"✅ **Broadcasted message in `{sent}` chats")
