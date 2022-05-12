@@ -50,7 +50,7 @@ async def bug(_, message: Message):
         )
         await app.send_message(
             LOG_GROUPS,
-            f"📣 New bug reporting\n\n**Chat:** [{message.chat.title}]({memek})\n**Name:** {mention}\n**User ID:** {message.from_user.id}\n**Username:** @{message.from_user.username}\n\n**Contents of the report:** {bugnya}",
+            f"📣 New bug reporting\n\n**Chat:** [{message.chat.title}]({memek})\n**Name:** {mention}\n**User ID:** {message.from_user.id}\n**Username:** @{message.from_user.username}\n\n**Contents of the report:**\n{bugnya}",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
