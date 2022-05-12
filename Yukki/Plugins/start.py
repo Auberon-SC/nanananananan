@@ -53,20 +53,20 @@ pstart_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Add Me To Your Group", url=f"https://t.me/RessoStreambot?startgroup=true")
+                        "➕ Add Me To Your Group ➕", url=f"https://t.me/RessoStreambot?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "📖 Commands List", url=f"https://telegra.ph/Resso-Music---Command-List-05-12"),
+                        "📖 Commands", url=f"https://telegra.ph/Resso-Music---Command-List-05-12"),
                     InlineKeyboardButton(
                         "👮🏻‍♀️ zein", url=f"https://t.me/tdrki_1")
-                ],[
-                    InlineKeyboardButton(
-                        "🌐 Website", url=f"https://zeinzo.vercel.app/")
                 ],[
                     InlineKeyboardButton(
                         "👥 Official Group", url=f"https://t.me/punyazein"), 
                     InlineKeyboardButton(
                         "📎 Official Channel", url=f"https://t.me/zeinproject")
+                ],[
+                    InlineKeyboardButton(
+                        "🌐 Website", url=f"https://zeinzo.vercel.app/")
                 ],
             ]
         )
@@ -128,7 +128,8 @@ async def play(_, message: Message):
             text=f"✨ **Welcome** {rpk}!\n\n💭 [Resso Stream](https://t.me/RessoStreamBot) Allows you to play music on groups through the new Telegram's video chats!.\n\nℹ️ Information for bot commands click » **Bot commands**.",
             parse_mode="markdown",
             reply_markup=pstart_markup,
-            reply_to_message_id=message.message_id
+            reply_to_message_id=message.message_id,
+            disable_web_page_preview=True,
         )
     if len(message.command) == 2:
         chat_id = message.chat.id
