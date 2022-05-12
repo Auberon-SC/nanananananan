@@ -158,7 +158,7 @@ async def play(_, message: Message):
         user_name = message.from_user.first_name
         rpk = "["+user_name+"](tg://user?id="+str(user_id)+")" 
         await app.send_message(message.chat.id,
-            text=f"✨ **Welcome** {rpk}!\n\n💭 [Resso Stream](https://t.me/RessoStreamBot) Allows you to play music on groups through the new Telegram's video chats!.\n\nℹ️ Information for bot commands click » **Bot commands**.",
+            text=f"✨ **Welcome** {rpk}!\n\n💭 [Resso Stream](https://t.me/RessoStreamBot) **Allows** you **to play** music on **groups** through the new **Telegram's video chats!**\n\nℹ️ Information for bot commands click » **Bot commands**.",
             parse_mode="markdown",
             reply_markup=pstart_markup,
             reply_to_message_id=message.message_id,
