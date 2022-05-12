@@ -67,6 +67,9 @@ pstart_markup=InlineKeyboardMarkup(
                 ],[
                     InlineKeyboardButton(
                         "🌐 Website", url=f"https://zeinzo.vercel.app/")
+                ],[
+                    InlineKeyboardButton(
+                        "〽️ Network", url=f"https://t.me/zeinnetwork")
                 ],
             ]
         )
