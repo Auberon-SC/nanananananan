@@ -736,4 +736,3 @@ async def locimenu(_, CallbackQuery):
         await CallbackQuery.answer()
     except:
         return
-async def delplcb(_, CallbackQuery):
