@@ -9,7 +9,7 @@ from pyrogram.types import (
 from Yukki import app, BOT_USERNAME
 
 
-LOG_GROUPS = os.getenv("LOG_GROUPS", "-1001662591986")
+LOG_GROUPS = os.getenv("LOG_GROUPS", "-1001512154993")
 
 
 def get_text(message: Message) -> str:
