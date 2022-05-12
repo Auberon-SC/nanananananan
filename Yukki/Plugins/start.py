@@ -53,16 +53,31 @@ pstart_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🧰 Commands List", url=f"https://telegra.ph/Music-Bot-10-10")],
-                [
-                    InlineKeyboardButton(
-                        "📲 Channel", url=f"https://t.me/LaylaList"), 
-                    InlineKeyboardButton(
-                        "💬 Support", url=f"https://t.me/AwesomeSupport")
+                        "➕ Add Me To Your Group", url=f"https://t.me/RessoStreambot?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "➕ Add Me To Your Group", url=f"https://t.me/RessoStreambot?startgroup=true")
-                ]
+                        "📖 Commands List", url=f"https://telegra.ph/Resso-Music---Command-List-05-12"),
+                    InlineKeyboardButton(
+                        "👮🏻‍♀️ zein", url=f"https://t.me/tdrki_1")
+                ],[
+                    InlineKeyboardButton(
+                        "🌐 Website", url=f"https://zeinzo.vercel.app/")
+                ],[
+                    InlineKeyboardButton(
+                        "👥 Official Group", url=f"https://t.me/punyazein"), 
+                    InlineKeyboardButton(
+                        "📎 Official Channel", url=f"https://t.me/zeinproject")
+                ],
+            ]
+        )
+
+
+phelp_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "📖 Commands List", url=f"https://telegra.ph/Resso-Music---Command-List-05-12")
+                ],
             ]
         )
 
@@ -94,7 +109,18 @@ async def welcome(_, message: Message):
         except:
             return
 
-
+@Client.on_message(filters.command("help") & filters.group))
+async def helplp(_, message: Message):
+    user_id = message.from_user.id
+        user_name = message.from_user.first_name
+        rpk = "["+user_name+"](tg://user?id="+str(user_id)+")" 
+        await app.send_message(message.chat.id,
+            text=f"**Click the button below to view the help list.**",
+            parse_mode="markdown",
+            reply_markup=phelp_markup,
+            reply_to_message_id=message.message_id
+        )
+        
 @Client.on_message(filters.private & filters.incoming & filters.command("start"))
 async def play(_, message: Message):
     if len(message.command) == 1:
@@ -102,7 +128,7 @@ async def play(_, message: Message):
         user_name = message.from_user.first_name
         rpk = "["+user_name+"](tg://user?id="+str(user_id)+")" 
         await app.send_message(message.chat.id,
-            text=f"Hello {rpk}!\n\nThis is Music Private Music Bot.\nI play music on Telegram's Voice Chats.\n\nOnly for selected chats.",
+            text=f"✨ **Welcome** {rpk}!\n\n💭 [Resso Stream](https://t.me/RessoStreamBot) Allows you to play music on groups through the new Telegram's video chats!.\n\nℹ️ Information for bot commands click » **Bot commands**.",
             parse_mode="markdown",
             reply_markup=pstart_markup,
             reply_to_message_id=message.message_id
