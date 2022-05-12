@@ -78,6 +78,18 @@ pstart_markup=InlineKeyboardMarkup(
         )
 
 
+pstartaa_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "🗑Close", callback_data="close")
+                ],[
+                    InlineKeyboardButton(
+                        "〽️ Network", url=f"https://t.me/zeinnetwork")
+                ],
+            ]
+        )
+
 phelp_markup=InlineKeyboardMarkup(
             [
                 [
@@ -95,7 +107,7 @@ async def settings(_, message: Message):
     await app.send_message(message.chat.id,
             text=f"👋 **Hello** {rpk}\n\n**I'm awake already.**\nPython: `{kontol()}`\nPyrogram: `{kntl}`\nPyTgcalls: `{memek.__version__}`",
             parse_mode="markdown",
-            reply_markup=phelp_markup,
+            reply_markup=pstartaa_markup,
             reply_to_message_id=message.message_id
         )
     
