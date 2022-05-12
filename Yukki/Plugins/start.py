@@ -56,7 +56,7 @@ pstart_markup=InlineKeyboardMarkup(
                         "➕ Add Me To Your Group ➕", url=f"https://t.me/RessoStreambot?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "📖 Commands", url=f"https://telegra.ph/Resso-Music---Command-List-05-12"),
+                        "📖 Commands", url=f"https://t.me/RessoTutorial/4"),
                     InlineKeyboardButton(
                         "👮🏻‍♀️ zein", url=f"https://t.me/tdrki_1")
                 ],[
