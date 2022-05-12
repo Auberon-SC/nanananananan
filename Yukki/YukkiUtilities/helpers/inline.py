@@ -258,7 +258,6 @@ def start_pannel():
         return f"🎛  **This is {BOT_NAME}**", buttons
     if CHANNEL and GROUP:
         buttons = [
-            [InlineKeyboardButton(text="🔧 Settings", callback_data="settingm")],
             [
                 InlineKeyboardButton(text="✨ Channel", url=f"https://t.me/{CHANNEL}"),
                 InlineKeyboardButton(text="✨ Support", url=f"https://t.me/{GROUP}"),
