@@ -160,7 +160,7 @@ async def stop_cmd(_, message):
         await remove_active_chat(chat_id)
         await yukki.pytgcalls.leave_group_call(message.chat.id)
         await app.send_message(
-            message.chat.id, "✅ __The Userbot has disconnected for the voice chats.__"
+            message.chat.id, "✅ __Userbot has been disconnected from voice chat.__"
         )
     else:
         return await app.send_message(
