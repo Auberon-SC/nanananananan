@@ -109,8 +109,8 @@ async def welcome(_, message: Message):
         except:
             return
 
-@Client.on_message(filters.command("help") & filters.group))
-async def helplp(_, message: Message):
+@app.on_message(filters.command(["help"]))
+async def helpmenu(_, message: Message):
     user_id = message.from_user.id
         user_name = message.from_user.first_name
         rpk = "["+user_name+"](tg://user?id="+str(user_id)+")" 
