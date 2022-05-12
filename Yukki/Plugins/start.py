@@ -79,7 +79,7 @@ phelp_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "📖 Commands List", url=f"https://telegra.ph/Resso-Music---Command-List-05-12")
+                        "📖 Commands List", url=f"https://t.me/RessoTutorial/4")
                 ],
             ]
         )
