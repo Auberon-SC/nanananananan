@@ -4,6 +4,7 @@ services:
     build: .
     environment:
       SESSION_NAME: $SESSION_NAME
+      MUST_JOIN: $MUST_JOIN
       API_ID: $API_ID
       API_HASH: $API_HASH
       MONGO_DB_URI: $MONGO_DB_URI
