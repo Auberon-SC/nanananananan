@@ -1,0 +1,81 @@
+{
+	"name": "RessoMusic",
+	"description": "Deploy to Deta",
+	"env": [
+		{
+			"key": "SESSION_NAME",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "OWNER_ID",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "ASS_ID",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "LOG_GROUP_ID",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "LOG_GROUP_ID_2",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "API_ID",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "API_HASH",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "SUDO_USERS",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "DURATION_LIMIT",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "BOT_TOKEN",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "GROUP",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "CHANNEL",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "MUST_JOIN",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "UPSTREAM_REPO",
+			"description": "Your name",
+			"required": false 
+		},
+    {
+			"key": "MONGO_DB_URI",
+			"description": "Your name",
+			"required": false 
+		}
+	]
+}
